@@ -191,3 +191,4 @@ if (frontend.monthDuration > 5){
 }else {
     console.log('Менше 5 місяців');
 }
+
