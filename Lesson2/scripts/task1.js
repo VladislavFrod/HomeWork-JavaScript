@@ -213,7 +213,7 @@ let Weather=[
         evening: 16
     },
     {
-        day: 'Week',
+        day: 'Sunday',
         morning: 12,
         afternoon: 18,
         evening: 15
