@@ -49,17 +49,33 @@ for (let i = 0; i < f.length; i++) {
 
 console.log(' ');
 
-
+// - є масив
 // 1. перебрати його циклом while
-let nums = [2, 17, 13, 6, 22, 31, 45, 66, 100, -18];
+let numbers = [2, 17, 13, 6, 22, 31, 45, 66, 100, -18];
 let i = 0;
-while (i < nums.length) {
-    let num = nums[i];
-    console.log(num);
+while (i < numbers.length) {
+    let number = numbers[i];
+    console.log(number);
     i++;
 }
 
+console.log(' ');
+
+// 2. перебрати його циклом for
+for (let j = 0; j < numbers.length; j++) {
+    const number = numbers[j];
+    console.log(number)
+}
 
 
+console.log(' ');
 
+// 3. перебрати циклом while та вивести  числа тільки з непарним індексом
+let wi = 0;
+while (wi < numbers.length) {
+    let number = numbers[wi];
+    console.log(number ${wi});
+    wi += 2;
+}
 
+console.log(' ')
