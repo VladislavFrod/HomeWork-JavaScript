@@ -71,11 +71,54 @@ for (let j = 0; j < numbers.length; j++) {
 console.log(' ');
 
 // 3. перебрати циклом while та вивести  числа тільки з непарним індексом
-let wi = 0;
+let wi = 1;
 while (wi < numbers.length) {
     let number = numbers[wi];
-    console.log(number ${wi});
+    console.log(`${wi}; ${number}`);
     wi += 2;
 }
 
-console.log(' ')
+console.log(' ');
+
+// 4. перебрати циклом for та вивести  числа тільки з непарним індексом
+for (let j = 1; j < numbers.length; j += 2) {
+    const number = numbers[j];
+    console.log(`${j}; ${number}`);
+}
+
+console.log(' ');
+
+// 5. перебрати циклом while та вивести  числа тільки парні  значення
+let ai = 0;
+while (ai < numbers.length) {
+    let number = numbers[ai];
+    console.log(`${ai}; ${number}`)
+    ai += 2;
+}
+
+console.log(' ');
+
+// 6. перебрати циклом for та вивести  числа тільки парні  значення
+for (let j = 0; j < numbers.length; j += 2) {
+    const number = numbers[j];
+    console.log(`${j}; ${number}`);
+}
+
+
+console.log('');
+
+// 7. замінити кожне число кратне 3 на слово "okten"
+for (let j = 0; j < numbers.length; j++) {
+    if (numbers[j] % 3 === 0){
+        numbers[j] = 'okten';
+    }
+}
+console.log(numbers);
+
+console.log(' ');
+
+// 8. вивести масив в зворотньому порядку.
+for (let j = 10; j < numbers.length; j-=1) {
+    const number = numbers[j];
+    console.log(number)
+}
