@@ -234,18 +234,89 @@ for (let j = 0; j < mixarr.length; j++) {
 console.log(' ');
 
 //- Створити порожній масив. Наповнити його 10 елементами (різними за типами) через звернення до конкретних індексів. Вивести в консоль всі його елементи в циклі.
-let blank=[];
+let blank = [];
 blank[0] = 1;
-blank[1]=2;
-blank[2]=3;
-blank[3]=4;
-blank[4]=true;
-blank[5]=false;
-blank[6]='a';
-blank[7]='b'
-blank[8]='c'
-blank[9]='d'
+blank[1] = 2;
+blank[2] = 3;
+blank[3] = 4;
+blank[4] = true;
+blank[5] = false;
+blank[6] = 'a';
+blank[7] = 'b'
+blank[8] = 'c'
+blank[9] = 'd'
 for (const blankElement of blank) {
     console.log(blankElement);
 }
 console.log(' ');
+// - Створити цикл for на 10  ітерацій з кроком 1. Вивести поточний номер кроку через console.log та document.write
+
+let listing;
+listing = ['text', 'text', 'text'];
+for (const listingElement of listing) {
+    document.write(`
+    <div><h1>${listingElement}</h1></div>
+    `)
+}
+
+// - Створити цикл for на 10  ітерацій з кроком 1. Вивести поточний номер кроку через console.log та document.write
+for (let j = 1; j <= 10; j++) {
+    console.log(`text ${j}`)
+    document.write(`
+    <div style="border: 2px solid gray"><h1>text ${j}</h1></div>
+    `)
+}
+console.log(' ');
+// - Створити цикл for на 100 ітерацій з кроком 1. Вивести поточний номер кроку через console.log та document.write
+for (let j = 1; j <= 100; j++) {
+    console.log(`text ${j}`);
+    document.write(`
+    <div style="border: 2px solid blue"><h1>text ${j}</h1></div>
+    `)
+}
+console.log(' ');
+// - Створити цикл for на 100 ітерацій з кроком 2. Вивести поточний номер кроку через console.log та document.write
+for (let j = 1; j <= 100; j += 2) {
+    console.log(`text ${j}`);
+    document.write(`<div style="border: 2px solid black"><h1>text ${j}</h1></div>`)
+}
+console.log('');
+// - Створити цикл for на 100 ітерацій. Вивести тільки парні кроки. через console.log + document.write
+for (let j = 0; j < 100; j += 2) {
+    console.log(`text ${j}`);
+    document.write(`<div><h1>text ${j}</h1></div>`)
+}
+console.log(' ');
+
+// стоврити масив книжок (назва, кількість сторінок, автори , жанри).
+let books = [
+    {
+        title: "The Great Gatsby",
+        pageCount: 180,
+        authors: ["F. Scott Fitzgerald"],
+        genres: ["Fiction", "Classic"]
+    },
+    {
+        title: "To Kill a Mockingbird",
+        pageCount: 281,
+        authors: ["Harper Lee"],
+        genres: ["Fiction", "Classic", "Legal drama"]
+    },
+    {
+        title: "1984",
+        pageCount: 328,
+        authors: ["George Orwell"],
+        genres: ["Fiction", "Dystopian"]
+    },
+];
+// -знайти наібльшу книжку.
+let maxcount = 0;
+let maxbookcount=  null;
+for (let j = 0; j < books.length; j++) {
+    if (books[j].pageCount > maxcount) {
+        maxcount = books[j].pageCount;
+        maxbookcount = books[j];
+    }
+
+}
+console.log(maxbookcount)
