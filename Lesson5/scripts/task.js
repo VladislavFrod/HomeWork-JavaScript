@@ -76,37 +76,61 @@ const arrelement = (arrel) => {
 arrelement(arrel);
 
 // - створити функцію яка приймає масив об'єктів з наступними полями id,name,age , та виводить їх в документ. Для кожного об'єкту окремий блок.
-function arr2(id, name, age) {
-
-    let user =
-    {
-        id: id,
-        name: name,
-        age: age
-    }
-
+const user = (id, name, age) => {
     document.write(`
-    <div>
-    <h1>${user}</h1>
-    </div>
+    <div><h1>Id:${id} Name:${name} Age:${age}</h1></div>
     `)
 }
-arr2(`1`, `banan`, `24`);
+user(`1`, `Banan`, `18`);
 
 // - створити функцію яка повертає найменьше число з масиву
-let arrnumber=[52,42,12,62]
-function findminnumber(arrnumber){
-    let min = 0;
+let arrnumber = [52, 42, 12, 62]
+const findminnumber = (arrnumber) => {
+    let min = arrnumber[0];
     for (let i = 0; i < arrnumber.length; i++) {
-       if (arrnumber[i] < min){
-           min = arrnumber[i];
-       }
+        if (arrnumber[i] < min) {
+            min = arrnumber[i]
+        }
     }
-    return min
+    return min;
 }
-console.log(findminnumber(arrnumber))
+console.log(findminnumber(arrnumber));
+
+// - створити функцію sum(arr)яка приймає масив чисел, сумує значення елементів масиву та повертає його. Приклад sum([1,2,10]) //->13
+let arr2 = [52, 2, 10];
+
+const sum = (arr2) => {
+    let total = 0;
+    for (let i = 0; i < arr2.length; i++) {
+        total += arr2[i]
+    }
+    return total;
+}
+console.log(sum(arr2));
+console.log(' ');
 
 
+// - створити функцію swap(arr,index1,index2). Функція міняє місцями заняення у відаовідних індексах
+// Приклад  swap([11,22,33,44],0,1) //=> [22,11,33,44]
+const swap = (arr, index1, index2) => {
+    [arr[index1], arr[index2]] = [arr[index2], arr[index1]]
+    return arr;
+}
+console.log(swap([11, 22, 33, 44], 0, 1));
+console.log(' ');
 
+// Написати функцію обміну валюти exchange(sumUAH,currencyValues,exchangeCurrency)
+// Приклад exchange(10000,[{currency:'USD',value:40},{currency:'EUR',value:42}],'USD') // => 250
+const exchange = (sumUAH, currencyValues, exchangeCurrency) => {
+    let exchangeRate;
+    for (const currency of currencyValues) {
+        if (currency.currency === exchangeCurrency) {
+            exchangeRate = currency.value;
+            break;
+        }
+    }
+    let exchangedSum = sumUAH / exchangeRate;
+    return Math.round(exchangedSum * 100) / 100;
+};
 
-
+console.log(exchange(10000, [{currency: 'USD', value: 40}, {currency: 'EUR', value: 42}], 'USD'));
