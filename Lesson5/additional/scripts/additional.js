@@ -69,7 +69,7 @@ const user1 = new Createuser(
 
 // createuser(`1`, `Leanne Graham`, `Bret`, `Sincere@april.biz`, `Kulas Light`, `Apt. 556`, `Gwenborough`, `92998-3874`, `-37.3159`, `81.1496`, `1-770-736-8031 x56442`, `hildegard.org`, `Romaguera-Crona`, `Multi-layered client-server neural-net`, `harness real-time e-markets`);
 console.log(user1)
-const userHtml = `
+const userH1 = `
     <div>
         <p>Name: ${user1.name}</p>  
         <p>Username: ${user1.username}</p>
@@ -83,8 +83,10 @@ const userHtml = `
     </div>
 `;
 
-document.write(userHtml);
+document.write(userH1);
 console.log(' ');
+
+
 
 
 

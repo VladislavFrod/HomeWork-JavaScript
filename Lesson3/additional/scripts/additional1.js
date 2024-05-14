@@ -320,3 +320,8 @@ for (let j = 0; j < books.length; j++) {
 
 }
 console.log(maxbookcount)
+
+
+document.write(`
+<ul><li>${}</li></ul>
+`)
