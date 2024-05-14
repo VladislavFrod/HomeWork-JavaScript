@@ -1,20 +1,20 @@
 // - Знайти та вивести довижину настипних стрінгових значень
 // 'hello world', 'lorem ipsum', 'javascript is cool'
-let arr=['hello world', 'lorem ipsum', 'javascript is cool'];
-arr.forEach(function (string){
+let arr = ['hello world', 'lorem ipsum', 'javascript is cool'];
+arr.forEach(function (string) {
     console.log(string, string.length);
 })
 console.log('')
 // - Перевести до великого регістру наступні стрінгові значення
 // 'hello world', 'lorem ipsum', 'javascript is cool'
-let uppercasearr = arr.map(function (item){
+let uppercasearr = arr.map(function (item) {
     return item.toUpperCase()
 })
 console.log(uppercasearr);
 console.log('')
 // - Перевести до нижнього регістру настипні стрінгові значення
 // 'HELLO WORLD', 'LOREM IPSUM', 'JAVASCRIPT IS COOL'
-let lowercasearr = arr.map(function (item){
+let lowercasearr = arr.map(function (item) {
     return item.toLowerCase();
 })
 console.log(lowercasearr);
@@ -28,17 +28,18 @@ console.log('')
 
 let str = 'Ревуть воли як ясла повні';
 
-function splitstr(str){
+function splitstr(str) {
     return str.split(' ')
 }
+
 console.log(splitstr(str))
 
 console.log('')
 
 // - є масив чисел [10,8,-7,55,987,-1011,0,1050,0] . за допомоги map  перетворити всі об'єкти в масиві на стрінгові.
-let numbers = [10,8,-7,55,987,-1011,0,1050,0];
+let numbers = [10, 8, -7, 55, 987, -1011, 0, 1050, 0];
 
-let strings = numbers.map(function (number){
+let strings = numbers.map(function (number) {
     return number.toString()
 })
 console.log(strings);
@@ -47,9 +48,12 @@ console.log('');
 //     let nums = [11,21,3];
 // sortNums(nums,'ascending') // [3,11,21]
 // sortNums(nums,'descending') // [21,11,3]
-let nums = [11,21,3];
-function sortnums(nums, direction){
-    return nums.sort((a, b) => direction === 'ascending' ? a - b : b - a)}
+let nums = [11, 21, 3];
+
+function sortnums(nums, direction) {
+    return nums.sort((a, b) => direction === 'ascending' ? a - b : b - a)
+}
+
 console.log(sortnums(nums, 'ascending'))
 console.log(sortnums(nums, 'descending'))
 console.log('');
@@ -65,18 +69,118 @@ let coursesAndDurationArray = [
 ];
 
 // -- відсортувати його за спаданням за monthDuration
-coursesAndDurationArray.sort((m1, m2) =>{
+coursesAndDurationArray.sort((m1, m2) => {
     return m2.monthDuration - m1.monthDuration
 })
 console.log(coursesAndDurationArray);
 console.log('');
 // -- відфільтрувати , залишивши тільки курси з тривалістю більше 5 місяців
-let filteredcourses = coursesAndDurationArray.filter(function (value){
+let filteredcourses = coursesAndDurationArray.filter(function (value) {
     return value.monthDuration > 5
 })
 console.log(filteredcourses);
 console.log('');
 // -- за допомоги map перетворити кожен елемент на наступний тип {id,title,monthDuration}
-coursesAndDurationArray.map(function (id, title, monthDuration){
-
+let mapcours = coursesAndDurationArray.map(function (value, index) {
+    return {
+        id: index + 1,
+        title: value.title,
+        monthDuration: value.monthDuration
+    }
 })
+console.log(mapcours)
+console.log('');
+// описати колоду карт (від 6 до туза без джокерів)
+// - знайти піковий туз
+// - всі шістки
+// - всі червоні карти
+// - всі буби
+// - всі трефи від 9 та більше
+//
+// {
+//     cardSuit: '', // 'spade', 'diamond','heart', 'clubs'
+//         value: '', // '6'-'10', 'ace','jack','queen','king','joker'
+//     color:'', // 'red','black'
+// }
+
+let cardSuits = ['spades', 'diamonds', 'hearts', 'clubs'];
+let cardValues = [6, 7, 8, 9, 10, 'jack', 'queen', 'king', 'ace'];
+
+// let cards = cardSuits.reduce((acc, cardSuit) => {
+//     cardValues.forEach((cardValue) => {
+//         let color = (cardSuit === 'diamonds' || cardSuit === 'hearts') ? 'red' : 'black';
+//
+//         acc.push({
+//             cardSuit: cardSuit,
+//             cardValue: cardValue,
+//             color: color
+//         });
+//     });
+//     return acc;
+// }, []);
+//
+// console.log(cards);
+
+// знайти піковий туз
+let allCards = [];
+cardSuits.forEach(suit => {
+    cardValues.forEach(value => {
+        allCards.push({suit: suit, value: value})
+    })
+})
+let spaceAce = allCards.filter(card => card.suit === 'spades' && card.value === 'ace');
+console.log(spaceAce)
+console.log('');
+
+// всі шістки
+
+let sdhc = allCards.filter(card => (card.suit === 'spades' || card.suit === 'diamonds' || card.suit === 'hearts' || card.suit === 'clubs') && card.value === 6);
+console.log(sdhc);
+console.log('')
+
+
+// - всі червоні карти
+let cards = cardSuits.reduce((acc, cardSuit) => {
+    cardValues.forEach((cardValue) => {
+        let color = (cardSuit === 'diamonds' || cardSuit === 'hearts') ? 'red' : 'black';
+        acc.push({
+            cardSuit: cardSuit,
+            cardValue: cardValue,
+            color: color
+        });
+    });
+    return acc;
+}, []);
+
+let redCards = cards.filter(card => card.color === 'red');
+console.log(redCards);
+console.log('')
+
+// - всі буби
+let diamond = allCards.filter(card => card.suit === 'diamonds' && card.value === card.value)
+console.log(diamond)
+console.log('');
+
+// - всі трефи від 9 та більше
+let clubs = allCards.filter(card => card.suit === 'clubs' && cardValues.indexOf(card.value) >= cardValues.indexOf(9));
+console.log(clubs);
+console.log('');
+
+
+// Взяти описану колоду карт, та за допомоги reduce упакувати всі карти по "мастях" в об'єкт
+// {
+//     spades:[],
+//         diamonds:[],
+//     hearts:[],
+//     clubs:[]
+// }
+
+let reduce = allCards.reduce((acc, card) => {
+    if (!acc[card.suit]) {
+        acc[card.suit] = [];
+    }
+    acc[card.suit].push(card);
+    return acc;
+}, {});
+
+console.log(reduce);
