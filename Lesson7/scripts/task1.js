@@ -166,7 +166,7 @@ console.log('')
 // -- changeYear (newValue) - змінює рік випуску на значення newValue
 // -- addDriver (driver) - приймає об'єкт який "водій" з довільним набором полів, і додає його в поточний об'єкт car
 
-class Car2{
+class Car2 {
     constructor(model2, maker2, year2, maxspeed2, engineV2) {
         this.model2 = model2;
         this.maker2 = maker2;
@@ -175,29 +175,36 @@ class Car2{
         this.engineV2 = engineV2;
         this.drivers = []
     }
-    greeting(){
+
+    greeting() {
         return `hello`
     }
-    drive(){
+
+    drive() {
         console.log(`їдемо зі швидкістю ${this.maxspeed2} на годину`)
     }
-    info(){
+
+    info() {
         console.log(`модель: ${this.model2},`, `виробник: ${this.maker2},`, `рік випуску: ${this.year2},`, `максимальна швидкість ${this.maxspeed2}`)
     }
-    increaseMaxSpeed(newSpeed2){
+
+    increaseMaxSpeed(newSpeed2) {
         this.maxspeed2 += newSpeed2
         console.log(`Максимальна швидкість збільшилась на ${newSpeed2}, і тепер вона ${this.maxspeed2}`)
     }
-    changeYear(newValue2){
+
+    changeYear(newValue2) {
         this.year2 = newValue2
         console.log(`Новий рік випуску авто ${this.year2}`)
     }
-    addDriver(driver){
+
+    addDriver(driver) {
         this.drivers.push(driver);
         console.log(`Було додано нового водія з іменем ${this.drivers}`)
     }
 
 }
+
 let car2 = new Car2(`Audi S8 (D4) facelift`, `Audi AG`, 2013, 250, `V8 520 HP`);
 console.log(car2);
 car2.drive();
@@ -206,8 +213,9 @@ car2.increaseMaxSpeed(50);
 car2.changeYear(2024);
 car2.addDriver(`banan`);
 console.log('')
+
 // -створити класс/функцію конструктор попелюшка з полями ім'я, вік, розмір ноги. Створити масив з 10 попелюшок.
-class Girl{
+class Girl {
     constructor(name, age, footSize) {
         this.name = name
         this.age = age
@@ -216,20 +224,22 @@ class Girl{
     }
 
 }
-let girls=[
-new Girl(`Анна`, 21, 35),
-new Girl(`Марія`, 21, 34),
-new Girl(`Катерина`, 21, 37),
-new Girl(`Ольга`, 21, 37),
-new Girl(`Юлія`, 21, 39),
-new Girl(`Еріка`, 21, 36),
-new Girl(`Вікторія`, 21, 40),
-new Girl(`Наталія`, 21, 38),
-new Girl(`Тетяна`, 21, 39),
-new Girl(`Ірина`, 21, 40)
+
+let girls = [
+    new Girl(`Анна`, 21, 35),
+    new Girl(`Марія`, 21, 34),
+    new Girl(`Катерина`, 21, 37),
+    new Girl(`Ольга`, 21, 37),
+    new Girl(`Юлія`, 21, 39),
+    new Girl(`Попелюшка`, 21, 36),
+    new Girl(`Вікторія`, 21, 40),
+    new Girl(`Наталія`, 21, 38),
+    new Girl(`Тетяна`, 21, 39),
+    new Girl(`Ірина`, 21, 40)
 ]
+
 // Сторити об'єкт класу "принц" за допомоги класу який має поля ім'я, вік, туфелька яку він знайшов.
-class Prince{
+class Prince {
     constructor(name, age, shoe) {
         this.name = name
         this.age = age
@@ -237,11 +247,35 @@ class Prince{
         console.log(this)
     }
 }
-let princ = new Prince(`Владислав`, 21, 36);
+
+let princ = new Prince(`Принц`, 21, 36);
 // За допомоги циклу знайти яка попелюшка повинна бути з принцом
 for (let i = 0; i < girls.length; i++) {
-        if(girls[i].footSize === princ.shoe){
-            console.log(`Ви знайшли свою принцесу її звати ${girls.name === girls.footSize[36]}`)
-        }
-
+    if (girls[i].footSize === princ.shoe) {
+        console.log(`Попелюшка яка підходить принцу: ${girls[i].name}`);
+    }
 }
+console.log('');
+// Через Array.prototype. створити власний foreach
+Array.prototype.newForEach = function (callback) {
+    for (let i = 0; i < this.length; i++) {
+        callback(this)
+    }
+}
+let num = [1, 2, 3]
+num.newForEach((item) => {
+    console.log(item)
+});
+console.log('');
+// Через Array.prototype. створити власний filter,
+Array.prototype.newFilter = function (callback) {
+    let res = []
+    for (let i = 0; i < res.length; i++) {
+        res.push(callback(this))
+
+    }
+    return res;
+}
+
+let num2 = [1, 2, 3]
+console.log(num2)
