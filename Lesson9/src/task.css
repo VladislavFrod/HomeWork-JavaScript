@@ -1,0 +1,63 @@
+/*body{*/
+/*    display: flex;*/
+/*}*/
+/**{*/
+/*    margin: 0;*/
+/*}*/
+.wrap, .collapse, .alpha, .beta {
+    height: 100px;
+    width: 100px;
+    background-color: wheat;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    color: red;
+}
+
+.collapse {
+    background-color: gray;
+}
+
+.alpha {
+    background-color: darkslategray;
+}
+
+.beta {
+    background-color: bisque;
+}
+
+ul {
+    width: 100px;
+    height: 100px;
+    background-color: darkslategray;
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    color: wheat;
+}
+
+div {
+    background-color: greenyellow;
+    width: 150px;
+    margin: 0;
+}
+
+.item {
+    background-color: red;
+    width: 150px;
+    margin: 0;
+}
+.member{
+    width: auto;
+    background-color: yellow;
+    display: flex;
+    justify-content: space-between;
+}
+.text-info-p{
+    width: 500px;
+}
+.text-info-h{
+    width: 250px;
+}

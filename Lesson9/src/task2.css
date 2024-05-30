@@ -1,0 +1,42 @@
+/*.JavaScript{*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    background-color: yellow;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*}*/
+/*.main-trivel{*/
+/*    display: flex;*/
+/*}*/
+.countainer{
+    display: flex;
+    flex-wrap: wrap;
+}
+.course {
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 700px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.properties {
+    margin-bottom: 10px;
+}
+
+.property {
+    margin-right: 10px;
+}
+
+.modules {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.modules li {
+    margin-bottom: 5px;
+}
