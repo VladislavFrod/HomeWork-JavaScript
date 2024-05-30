@@ -74,52 +74,40 @@ let coursesArray = [
 ];
 console.log(coursesArray)
 
-// const coursesArrayElement = coursesArray[0]
-// let div = document.createElement(`div`)
-// div.classList.add(`JavaScript`)
-// let h1 = document.createElement('h1')
-// h1.textContent = `${coursesArrayElement.title}`
-// h1.classList.add('titleJS')
-// div.appendChild(h1)
-// let h2 = document.createElement('h2')
-// h2.textContent = `${coursesArrayElement.monthDuration} Mounth ${coursesArrayElement.hourDuration} Hours`
-// h2.classList.add('main-trivel')
-// div.appendChild(h2)
-// document.body.appendChild(div)
-// let div2 = document.createElement(`div`)
-// div2.classList.add('cours-name')
 
-let container = document.getElementById('container');
-for (const course of coursesArray) {
-    let courseBlock = document.createElement('div');
-    courseBlock.classList.add('course');
-    let titleHeading = document.createElement('h2');
-    titleHeading.textContent = course.title;
-    courseBlock.appendChild(titleHeading);
-    let propertiesBlock = document.createElement('div');
-    propertiesBlock.classList.add('properties');
-    for (const key in course) {
-        if (key === 'modules') continue;
-        let propertyBlock = document.createElement('div');
-        propertyBlock.classList.add('property');
-        let propertyName = document.createElement('span');
-        propertyName.textContent = key + ': ';
-        propertyBlock.appendChild(propertyName);
-        let propertyValue = document.createElement('span');
-        propertyValue.textContent = course[key];
-        propertyBlock.appendChild(propertyValue);
-        propertiesBlock.appendChild(propertyBlock);
+let main = document.createElement('main');
+
+for (const obj of coursesArray) {
+    let div = document.createElement('div');
+    div.classList.add('course');
+
+    let h1 = document.createElement('h1');
+    h1.classList.add('title');
+    h1.innerText = obj.title;
+
+    let durationsDiv = document.createElement('div');
+    durationsDiv.classList.add('durations');
+
+    let h2Month = document.createElement('h2');
+    h2Month.classList.add('duration');
+    h2Month.innerText = `${obj.monthDuration} months`;
+
+    let h2Hour = document.createElement('h2');
+    h2Hour.classList.add('duration');
+    h2Hour.innerText = `${obj.hourDuration} hours`;
+
+    durationsDiv.append(h2Month, h2Hour);
+
+    let ul = document.createElement('ul');
+
+    for (const item of obj.modules) {
+        let li = document.createElement('li');
+        li.innerText = item;
+        ul.appendChild(li);
     }
-    courseBlock.appendChild(propertiesBlock);
 
-    let modulesList = document.createElement('ul');
-    modulesList.classList.add('modules');
-
-    for (const module of course.modules) {
-        let moduleItem = document.createElement('li');
-        moduleItem.textContent = module;
-        modulesList.appendChild(moduleItem);
-    }
-    courseBlock.appendChild(modulesList);
-    container.appendChild(courseBlock);
+    div.append(h1, durationsDiv, ul);
+    main.appendChild(div);
 }
+
+document.body.appendChild(main);
