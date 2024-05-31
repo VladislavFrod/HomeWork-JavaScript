@@ -12,6 +12,23 @@
         color: white;
         font-size: 40px;
     }
+     #container {
+         display: flex;
+         flex-wrap: wrap;
+         gap: 10px;
+     }
+    .item {
+        width: 100px;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: green;
+        color: yellow;
+    }
+    button {
+        margin: 10px;
+    }
 </style>
 <body>
 <form id="">
@@ -30,9 +47,21 @@
 <div id="numberBlock">0</div>
 <a href="sessions.html"></a>
 
+<div id="container"></div>
+<button id="prev">prev</button>
+<button id="next">next</button>
 
 
+<div id="id-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, illo.</div>
+<button id="delete-text">Видалити текст</button>
 
+<form>
+    <label>
+    <input type="number" id="ageVerif" placeholder="Введіть свій вік">
+    </label>
+    <button id="check">Відправити</button>
+    <p id="massage"></p>
+</form>
     <script src="scripts/task.js">
     </script>
 </body>
