@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    #container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .item {
+        width: 100px;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: lightblue;
+        border: 1px solid #ccc;
+    }
+    button {
+        margin: 10px;
+    }
+</style>
+<body>
+    <div id="container"></div>
+    <button id="next">next</button>
+    <button id="prev">prev</button>
+<script>
+    // зробити масив на 100 об'єктів та дві кнопки prev next
+    // при завантажені сторінки з'являються перші 10 об'єктів.
+    //     При натисканні next виводяться настпні 10 об'єктів
+    // При натисканні prev виводяться попередні 10 об'єктів
+
+
+    const items = Array.from({ length: 100 }, (_, i) => ({ id: i + 1 }));
+    let currentPage = 0;
+    const ItemsPerPage =10;
+
+    const container = document.getElementById(`container`);
+    const prevButton = document.getElementById(`prev`);
+    const nextButton = document.getElementById('next');
+
+    function renderPage(page){
+        container.innerHTML ='';
+        const start = page * ItemsPerPage;
+        const end = start + ItemsPerPage;
+        const pageItems = items.slice(start, end);
+
+        pageItems.forEach(item=>{
+            const div = document.createElement(`div`)
+            div.className = 'item'
+            div.textContent = `Item ${item.id}`
+            container.appendChild(div);
+        })
+        prevButton.disable = page === 0;
+        nextButton.disable = end >= items.length
+    }
+    prevButton.addEventListener(`click`, () =>{
+        if (currentPage > 0){
+            currentPage--;
+            renderPage(currentPage)
+        }
+    })
+    nextButton.addEventListener(`click`, ()=>{
+        if ((currentPage +1) * ItemsPerPage < items.length){
+            currentPage++;
+            renderPage(currentPage)
+        }
+    })
+    renderPage(currentPage)
+
+
+
+
+//     function createItems(){
+//         let ul = document.createElement(`ul`);
+//         for (let i = 0; i < 100; i++) {
+//            let li = document.createElement(`li`)
+//             li.textContent = `item ${i + 1}`
+//             ul.appendChild(li)
+//         }
+//         document.body.appendChild(ul)
+//     }
+//
+// createItems()
+
+
+
+</script>
+</body>
+</html>

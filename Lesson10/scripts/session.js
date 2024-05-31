@@ -12,7 +12,7 @@ function documentSession() {
     const sessions = getSessions();
     sessionList.innerHTML = '';
     if (sessions.length === 0) {
-        sessionList.textContent = 'No sessions found';
+        sessionList.textContent = '';
         return;
     }
     const ul = document.createElement('ul');
