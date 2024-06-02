@@ -10,12 +10,18 @@ fetch('http://jsonplaceholder.typicode.com/users')
         console.log(users);
         let div = document.getElementById('container');
         div.classList.add('container');
+        let ul = document.createElement('ul');
+        ul.classList.add('list-change');
         for (const user of users) {
-            let ul = document.createElement('ul');
-            ul.classList.add('list-change');
             let li = document.createElement('li');
-            li.innerText = `Id: ${user.id}, Name: ${user.name}`;
+            li.innerText = `Id: ${user.id}, Name: ${user.name} ---> `;
+            let a = document.createElement('a');
+            a.href = `user-details.html?id=${user.id}`;
+            a.innerText = 'Details user';
+            a.classList.add('user-link');
+
+            li.appendChild(a);
             ul.appendChild(li);
-            div.appendChild(ul);
         }
+        div.appendChild(ul);
     })
