@@ -1,0 +1,38 @@
+body {
+    background-color: yellow;
+}
+
+.container {
+    background-color: blue;
+    color: yellow;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.detail-item {
+    margin-bottom: 10px;
+    background-color: yellow;
+    color: blue;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.comments-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: blue;
+    color: yellow;
+    border-radius: 10px;
+}
+
+.comment {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: yellow;
+    color: blue;
+    border-radius: 5px;
+}
+h2{
+    color: blue;
+}

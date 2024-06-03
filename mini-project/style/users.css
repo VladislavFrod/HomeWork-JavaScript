@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+}
+#container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: yellow;
+}
+.block-user{
+    border: 2px solid yellow;
+    width: 500px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: dodgerblue;
+    color: yellow;
+}
+.details-button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: blue;
+    color: yellow;
+    cursor: pointer;
+    width: 250px;
+}
